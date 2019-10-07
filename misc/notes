@@ -1,0 +1,6 @@
+THE MATRIX >>> print(().__class__.__base__.__subclasses__()[80])
+<class '_frozen_importlib.BuiltinImporter'>
+
+
+
+print(().__class__.__base__.__subclasses__()[80].is_frozen('os'))

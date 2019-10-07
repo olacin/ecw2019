@@ -1,0 +1,1 @@
+(sqlite3.OperationalError) unrecognized token: "'" [SQL: SELECT id, secret FROM users WHERE email='ex@abc.com' AND password='' or 1=1'] (Background on this error at: http://sqlalche.me/e/e3q8)
