@@ -1,0 +1,17 @@
+secret : Digaeaier
+email : aambdasseatoe@saclre.vault
+password : 77321016c025
+USERS : CREATE TABLE users (id INTEGER NOT NULL, email VARCHAR(250) NOT NULL, password VARCHAR(250) NOT NULL, rank VARCHAR(250) NOT NULL, secret VARCHAR(250) NOT NULL, PRIMARY KEY (id))
+VAULT : CREATE TABLE vault (id INTEGER NOT NULL, flag VARCHAR(250) NOT NULL, PRIMARY KEY (id))
+
+================== users ================
++----+-------+----------+------+--------+
+| id | email | password | rank | secret |
++----+-------+----------+------+--------+
+
+=== vault ===
++----+------+
+| id | flag |
++----+------+
+
+ECW{327d9b48bb013d14000a065856c334f04881b2f707002d2000200ac55e43f1e9}
