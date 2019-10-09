@@ -1,0 +1,6 @@
+00000000: 377a bcaf 271c 0004 b48c e75d 40f4 b101  7z..'......]@...	# signature 		    = 377a bcaf 271c 
+00000010: 0000 0000 8a00 0000 0000 0000 95e0 4b1d  ..............K.	# format version 	    = 0004
+									# CRC of following 20 bytes = b48c e75d
+########: Start of compressed data                                      # rel. offset of end header = 40f4 b101 0000 0000 
+00000020: 44b2 69e4 4215 5e01 1db3 bb18 dec4 9752  D.i.B.^........R	# lgth of end header	    = 8a00 0000 0000 0000 
+00000030: 05cb 6edc d964 2de6 6af3 5676 ab27 305f  ..n..d-.j.Vv.'0_	# CRC of end header 	    = 95e0 4b1d
