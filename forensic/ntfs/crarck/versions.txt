@@ -1,0 +1,63 @@
+Changes in the versions:
+
+1.2
+   - 64-bit version, 32-bit is now obsolete. Up to 5-20% speed-up on
+different archive types.
+   - NVIDIA G80 (compute capability 1.x) no more supported.
+   - Intel GPU not supported until they fix the OpenCL driver.
+
+1.1c
+  - AESNI bug on stored files fixed
+
+1.1b
+  - NVIDIA Maxwell support.
+  - Intel GPU support temporarily removed due to a lot of errors
+in Intel OpenCL driver.
+
+1.1a
+  - WinXP support fixed. But future WinXP support is not
+guaranteed.
+
+1.1
+  - Haswell AVX2 support, 2 times faster, CPU rate up to 4.50!
+  - Linking CUDA 5.5 surprisingly resulted in 30%-50% speed-up
+on Fermi and Kepler cards
+  - Intel HD grapichs OpenCL support
+  - AMD XOP code enhanced
+  - -n option to specify GPU device number
+
+1.05
+  - serious bug (password not found) fixed
+  - correct recognition of AMD APUs
+
+1.04
+  - non-ASCII passwords are now working
+
+1.03a
+  - fixed OpenCL AMD GCN bug with -d2 option
+
+1.03
+  - Kepler tuning
+  - GPU rate and grid size are calculated more
+accurately
+  - due to a lot of OpenCL compiler errors, the self
+test is included. (OpenCL version only)
+
+1.02
+    - serious bug (false negative) fixed
+
+1.01
+    - up to 3% brute-force attack speed-up on CPU,
+up to 10% dictionary attack speed-up
+
+1.0 BETA:
+    - GPU support using CUDA and OpenCL, including
+Kepler and AMD GCN GPUs
+    - more accurate CPU rate and SHA-256 clocks. Turn
+Turbo Boost off when to get correct results!
+
+0.95 BETA:
+    - AMD FX (Bulldozer) code added
+
+0.9 BETA:
+    - First version released.
