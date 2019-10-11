@@ -6,16 +6,21 @@ application = Flask(__name__)
 
 @application.route('/.bzr/<path:filename>')
 def bazaar(filename):
-    print(application.root_path + '/.bzr/')
+    #print(application.root_path + '/.bzr/')
+    print('Filename : {}'.format(filename))
+    print('Root path : {}'.format(application.root_path + '/.bzr/'))
+    print(type(filename))
     return send_from_directory(application.root_path + '/.bzr/', filename, conditional=True)
 
 
 @application.route("/enroll", methods=['POST'])
 def enroll():
     email = request.form.get('email', '')
-
-    with open('static/database.json', 'rw') as f:
+    print(type(email))
+    print(email)
+    with open('static/database.json', 'r') as f:
         data = json.load(f)
+        print(data)
         for d in data:
             if email == d:
                 return "After this, there is no turning back. You take the blue pill - the story ends, you wake up in your bed and believe whatever you want to believe. You take the red pill - you stay in Wonderland, and I show you how deep the rabbit hole goes."
