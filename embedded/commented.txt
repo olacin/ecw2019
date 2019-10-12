@@ -102,128 +102,128 @@ ROM:08000076 ; -----------------------------------------------------------------
 ROM:08000076
 ROM:08000076 loc_8000076                             ; CODE XREF: sub_800001E+56j
 ROM:08000076                                         ; sub_800001E+72j
-ROM:08000076                 LDR     R0, =0x40010C08
-ROM:08000078                 LDR     R1, [R0]
-ROM:0800007A                 AND.W   R2, R1, #0x3E0
-ROM:0800007E                 CMP     R2, #0
-ROM:08000080                 BNE     loc_8000092
-ROM:08000082                 MOV.W   R6, #0
-ROM:08000086                 B       loc_800010A
+ROM:08000076                 LDR     R0, =0x40010C08		# R0 <- 0x40010C08		# la valeur à 0x40010C08 est chargée dans R0
+ROM:08000078                 LDR     R1, [R0]			# R1 = 0x40010C08		# la valeur à l'adresse de R0 est chargée dans R1
+ROM:0800007A                 AND.W   R2, R1, #0x3E0		# R2 = 0x3E0 and 0x40010C08
+ROM:0800007E                 CMP     R2, #0			# R2 == 0 ?
+ROM:08000080                 BNE     loc_8000092		# if not, goto loc_8000092
+ROM:08000082                 MOV.W   R6, #0			# 
+ROM:08000086                 B       loc_800010A		# else R6 = 0; goto loc_800010A
 ROM:08000088 ; ---------------------------------------------------------------------------
 ROM:08000088
 ROM:08000088 loc_8000088                             ; CODE XREF: sub_800001E+54j
 ROM:08000088                                         ; sub_800001E+70j
-ROM:08000088                 SUB.W   R3, R3, #1
-ROM:0800008C                 CMP     R3, #0
-ROM:0800008E                 BNE     loc_8000088
-ROM:08000090                 B       loc_8000076
+ROM:08000088                 SUB.W   R3, R3, #1			# R3 = R3 - 1
+ROM:0800008C                 CMP     R3, #0			# R3 == 0 ?
+ROM:0800008E                 BNE     loc_8000088		# if not, goto loc_8000088
+ROM:08000090                 B       loc_8000076		# else, goto loc_8000076
 ROM:08000092 ; ---------------------------------------------------------------------------
 ROM:08000092
 ROM:08000092 loc_8000092                             ; CODE XREF: sub_800001E+62j
-ROM:08000092                 CMP     R6, #0
-ROM:08000094                 BNE     loc_800010A
-ROM:08000096                 B       loc_8000098
+ROM:08000092                 CMP     R6, #0			# R6 == 0 ?
+ROM:08000094                 BNE     loc_800010A		# if not, goto loc_800010A
+ROM:08000096                 B       loc_8000098		# else, goto loc_8000098
 ROM:08000098 ; ---------------------------------------------------------------------------
 ROM:08000098
 ROM:08000098 loc_8000098                             ; CODE XREF: sub_800001E+78j
-ROM:08000098                 MOV.W   R6, #1
-ROM:0800009C                 AND.W   R2, R1, #0x20
-ROM:080000A0                 CMP     R2, #0
-ROM:080000A2                 BNE     loc_80000C4
-ROM:080000A4                 AND.W   R2, R1, #0x40
-ROM:080000A8                 CMP     R2, #0
-ROM:080000AA                 BNE     loc_80000CE
-ROM:080000AC                 AND.W   R2, R1, #0x80
-ROM:080000B0                 CMP     R2, #0
-ROM:080000B2                 BNE     loc_80000D8
-ROM:080000B4                 AND.W   R2, R1, #0x100
-ROM:080000B8                 CMP     R2, #0
-ROM:080000BA                 BNE     loc_80000E2
-ROM:080000BC                 AND.W   R2, R1, #0x200
-ROM:080000C0                 CMP     R2, #0
-ROM:080000C2                 BNE     loc_80000EC
+ROM:08000098                 MOV.W   R6, #1			# R6 = 1
+ROM:0800009C                 AND.W   R2, R1, #0x20		# R2 = 0x20 and R1
+ROM:080000A0                 CMP     R2, #0			# R2 == 0 ?
+ROM:080000A2                 BNE     loc_80000C4		# if not, goto loc_80000C4
+ROM:080000A4                 AND.W   R2, R1, #0x40		# R2 = 0x40 and R1
+ROM:080000A8                 CMP     R2, #0			# R2 == 0 ?
+ROM:080000AA                 BNE     loc_80000CE		# if not, goto loc_80000CE
+ROM:080000AC                 AND.W   R2, R1, #0x80		# R2 = 0x80 and R1
+ROM:080000B0                 CMP     R2, #0			# R2 == 0 ?
+ROM:080000B2                 BNE     loc_80000D8		# if not, goto loc_80000D8
+ROM:080000B4                 AND.W   R2, R1, #0x100		# R2 = 0x100 and R1
+ROM:080000B8                 CMP     R2, #0			# R2 == 0 ?
+ROM:080000BA                 BNE     loc_80000E2		# if not, goto loc_80000E2
+ROM:080000BC                 AND.W   R2, R1, #0x200		# R2 = 0x200 and R1
+ROM:080000C0                 CMP     R2, #0			# R2 == 0 ?
+ROM:080000C2                 BNE     loc_80000EC		# if not, goto loc_80000EC
 ROM:080000C4
 ROM:080000C4 loc_80000C4                             ; CODE XREF: sub_800001E+84j
-ROM:080000C4                 MOV.W   R3, #1
-ROM:080000C8                 EOR.W   R4, R3, #0x2A
-ROM:080000CC                 B       loc_80000F6
+ROM:080000C4                 MOV.W   R3, #1			# R3 = 1
+ROM:080000C8                 EOR.W   R4, R3, #0x2A		# R4 = 0x2A XOR R3
+ROM:080000CC                 B       loc_80000F6		# goto loc_80000F6
 ROM:080000CE ; ---------------------------------------------------------------------------
 ROM:080000CE
 ROM:080000CE loc_80000CE                             ; CODE XREF: sub_800001E+8Cj
-ROM:080000CE                 MOV.W   R3, #2
-ROM:080000D2                 EOR.W   R4, R3, #0x2A
-ROM:080000D6                 B       loc_80000F6
+ROM:080000CE                 MOV.W   R3, #2			# R3 = 2
+ROM:080000D2                 EOR.W   R4, R3, #0x2A		# R4 = 0x2A XOR R3
+ROM:080000D6                 B       loc_80000F6		# goto loc_80000F6
 ROM:080000D8 ; ---------------------------------------------------------------------------
 ROM:080000D8
 ROM:080000D8 loc_80000D8                             ; CODE XREF: sub_800001E+94j
-ROM:080000D8                 MOV.W   R3, #3
-ROM:080000DC                 EOR.W   R4, R3, #0x2A
-ROM:080000E0                 B       loc_80000F6
+ROM:080000D8                 MOV.W   R3, #3			# R3 = 3
+ROM:080000DC                 EOR.W   R4, R3, #0x2A		# R4 = 0x2A XOR R3
+ROM:080000E0                 B       loc_80000F6		# goto loc_80000F6
 ROM:080000E2 ; ---------------------------------------------------------------------------
 ROM:080000E2
 ROM:080000E2 loc_80000E2                             ; CODE XREF: sub_800001E+9Cj
-ROM:080000E2                 MOV.W   R3, #4
-ROM:080000E6                 EOR.W   R4, R3, #0x2A
-ROM:080000EA                 B       loc_80000F6
+ROM:080000E2                 MOV.W   R3, #4			# R3 = 4
+ROM:080000E6                 EOR.W   R4, R3, #0x2A		# R4 = 0x2A XOR R3
+ROM:080000EA                 B       loc_80000F6		# goto loc_80000F6
 ROM:080000EC ; ---------------------------------------------------------------------------
 ROM:080000EC
 ROM:080000EC loc_80000EC                             ; CODE XREF: sub_800001E+A4j
-ROM:080000EC                 MOV.W   R3, #5
-ROM:080000F0                 EOR.W   R4, R3, #0x2A
-ROM:080000F4                 B       loc_80000F6
+ROM:080000EC                 MOV.W   R3, #5			# R3 = 5
+ROM:080000F0                 EOR.W   R4, R3, #0x2A		# R4 = 0x2A XOR R3
+ROM:080000F4                 B       loc_80000F6		# goto loc_80000F6
 ROM:080000F6 ; ---------------------------------------------------------------------------
 ROM:080000F6
 ROM:080000F6 loc_80000F6                             ; CODE XREF: sub_800001E+AEj
 ROM:080000F6                                         ; sub_800001E+B8j ...
-ROM:080000F6                 LDRB    R3, [R7,R5]
-ROM:080000F8                 CMP     R3, R4
-ROM:080000FA                 BNE     loc_8000128
-ROM:080000FC                 LDR.W   R10, =0x989680
-ROM:08000100                 ADD.W   R5, R5, #1
-ROM:08000104                 CMP     R5, #0xC
-ROM:08000106                 BNE     loc_8000066
-ROM:08000108                 B       loc_8000120
+ROM:080000F6                 LDRB    R3, [R7,R5]		# ??
+ROM:080000F8                 CMP     R3, R4			# R3 == R4 ?
+ROM:080000FA                 BNE     loc_8000128		# if not, goto loc_8000128
+ROM:080000FC                 LDR.W   R10, =0x989680		# R10 = 0x989680
+ROM:08000100                 ADD.W   R5, R5, #1			# R5 = R5 + 1
+ROM:08000104                 CMP     R5, #0xC			# R5 == 0xC ?
+ROM:08000106                 BNE     loc_8000066		# if not, goto loc_8000066
+ROM:08000108                 B       loc_8000120		# else, goto loc_8000120
 ROM:0800010A ; ---------------------------------------------------------------------------
 ROM:0800010A
 ROM:0800010A loc_800010A                             ; CODE XREF: sub_800001E+68j
 ROM:0800010A                                         ; sub_800001E+76j
-ROM:0800010A                 SUB.W   R10, R10, #1
-ROM:0800010E                 CMP.W   R10, #0
-ROM:08000112                 BNE     loc_8000066
-ROM:08000114                 B       loc_8000116
+ROM:0800010A                 SUB.W   R10, R10, #1		# R10 = R10 - 1
+ROM:0800010E                 CMP.W   R10, #0			# R10 == 0 ?
+ROM:08000112                 BNE     loc_8000066		# if not, goto loc_8000066
+ROM:08000114                 B       loc_8000116		# else, goto loc_8000116
 ROM:08000116 ; ---------------------------------------------------------------------------
 ROM:08000116
 ROM:08000116 loc_8000116                             ; CODE XREF: sub_800001E+F6j
-ROM:08000116                 MOV.W   R5, #0
-ROM:0800011A                 LDR.W   R10, =0x989680
-ROM:0800011E                 B       loc_8000066
+ROM:08000116                 MOV.W   R5, #0			# R5 = 0
+ROM:0800011A                 LDR.W   R10, =0x989680		# R10 <- 0x989680
+ROM:0800011E                 B       loc_8000066		# goto loc_800066
 ROM:08000120 ; ---------------------------------------------------------------------------
 ROM:08000120
 ROM:08000120 loc_8000120                             ; CODE XREF: sub_800001E+EAj
-ROM:08000120                 LDR     R0, =0x4001100C
-ROM:08000122                 STR.W   R8, [R0]
-ROM:08000126                 B       loc_800014A
+ROM:08000120                 LDR     R0, =0x4001100C		# R0 <- 0x4001100C
+ROM:08000122                 STR.W   R8, [R0]			# R8 = *(0x4001100C)
+ROM:08000126                 B       loc_800014A		# goto loc_800014A
 ROM:08000128 ; ---------------------------------------------------------------------------
 ROM:08000128
 ROM:08000128 loc_8000128                             ; CODE XREF: sub_800001E+DCj
-ROM:08000128                 MOV.W   R5, #0
-ROM:0800012C                 LDR.W   R10, =0x989680
-ROM:08000130                 LDR     R0, =0x4001100C
-ROM:08000132                 STR.W   R9, [R0]
+ROM:08000128                 MOV.W   R5, #0			# R5 = 0
+ROM:0800012C                 LDR.W   R10, =0x989680		# R10 <- 0x989680
+ROM:08000130                 LDR     R0, =0x4001100C		# R0 <- 0x4001100C
+ROM:08000132                 STR.W   R9, [R0]			# R9 = *(0x4001100C)
 ROM:08000136
 ROM:08000136 loc_8000136                             ; CODE XREF: sub_800001E+120j
-ROM:08000136                 SUB.W   R10, R10, #1
-ROM:0800013A                 CMP.W   R10, #0
-ROM:0800013E                 BNE     loc_8000136
-ROM:08000140                 MOV.W   R1, #0
-ROM:08000144                 LDR     R0, =0x4001100C
-ROM:08000146                 STR     R1, [R0]
-ROM:08000148                 B       loc_8000066
+ROM:08000136                 SUB.W   R10, R10, #1		# R10 = R10 - 1
+ROM:0800013A                 CMP.W   R10, #0			# R10 == 0 ?
+ROM:0800013E                 BNE     loc_8000136		# if not, goto loc_8000136
+ROM:08000140                 MOV.W   R1, #0			# R1 = 0
+ROM:08000144                 LDR     R0, =0x4001100C		# R0 <- 0x4001100C
+ROM:08000146                 STR     R1, [R0]			# R1 = *(0x4001100C)
+ROM:08000148                 B       loc_8000066		# goto loc_8000066
 ROM:0800014A ; ---------------------------------------------------------------------------
 ROM:0800014A
 ROM:0800014A loc_800014A                             ; CODE XREF: sub_800001E+108j
 ROM:0800014A                                         ; sub_800001E:loc_800014Aj
-ROM:0800014A                 B       loc_800014A
+ROM:0800014A                 B       loc_800014A		# goto loc_800014A
 ROM:0800014A ; End of function sub_800001E
 ROM:0800014A
 ROM:0800014A ; ---------------------------------------------------------------------------
