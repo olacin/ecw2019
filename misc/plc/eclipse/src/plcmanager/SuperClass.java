@@ -109,6 +109,7 @@ public class SuperClass {
 	    arrayOfByte1[41] = (byte)paramArrayOfByte.length;
 	    System.arraycopy(paramArrayOfByte, 0, arrayOfByte1, 42, paramArrayOfByte.length);
 	    System.arraycopy(this.secret_key, 0, arrayOfByte1, 42 + paramArrayOfByte.length, this.secret_key.length);
+	    //System.out.println("Secret length : " + this.secret_key.length);
 	    return arrayOfByte1;
 	  }
 	  
@@ -134,12 +135,15 @@ public class SuperClass {
 		    byte[] arrayOfByte2 = build_header(paramLong, arrayOfByte1); // header - 43 char
 		    //System.out.println(arrayOfByte2.length);
 		    byte[] arrayOfByte4 = new byte[arrayOfByte2.length + 3];
-		    arrayOfByte4[43] = 1;//arrayOfByte3[45];
-		    arrayOfByte4[44] = 1;//arrayOfByte3[45];
-		    arrayOfByte4[45] = 1;//arrayOfByte3[45];
+		    System.arraycopy(arrayOfByte2, 0, arrayOfByte4, 0, arrayOfByte2.length);
+		    arrayOfByte4[43] = (byte)1;//arrayOfByte3[45];
+		    arrayOfByte4[44] = (byte)1;//arrayOfByte3[45];
+		    arrayOfByte4[45] = (byte)1;//arrayOfByte3[45];
+		    System.out.println(arrayOfByte4.length);
+		    System.out.println(bytesToHex(arrayOfByte4));
 		    byte[] arrayOfByte3 = send_and_rcv(arrayOfByte4);
-		    System.out.println(arrayOfByte3.length);
-		    System.out.println(bytesToHex(arrayOfByte3));
+		    System.out.println("Write response length : " + arrayOfByte3.length);
+		    System.out.println("Write response :" + bytesToHex(arrayOfByte3));
 		    return arrayOfByte3;
 		    /*
 		    if (arrayOfByte3 == null)
@@ -162,8 +166,7 @@ public class SuperClass {
 	    byte[] arrayOfByte2 = build_header(paramLong, arrayOfByte1);
 	    //System.out.println(arrayOfByte2.length);
 	    byte[] arrayOfByte3 = send_and_rcv(arrayOfByte2);
-	    //System.out.println("Header : " + bytesToHex(arrayOfByte2));
-	    //System.out.println("Lock " + (int)paramByte + " : " + bytesToHex(arrayOfByte3));
+	    System.out.println("Lock " + (int)paramByte + " : " + bytesToHex(arrayOfByte3));
 	    if (arrayOfByte3 == null)
 	      return null; 
 	    if (paramByte == -1) { // third lock
