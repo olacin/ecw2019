@@ -146,7 +146,7 @@ public class ClientUI extends JFrame {
 
 	  
 	  private void setLock1Status() {
-		this.client.write_var(plc_id, (byte)1);
+		this.client.write_var(plc_id, 32, 32);
 	    byte[] arrayOfByte = this.client.check_lock(this.plc_id, (byte)1);
 	    if (arrayOfByte == null) {
 	      this.label_lock_1_status.setText("Lock #1 status: Null");
@@ -156,7 +156,7 @@ public class ClientUI extends JFrame {
 	      this.label_lock_1_status.setText("Lock #1 status: closed");
 	    } 
 	  } private void setLock2Status() {
-		  this.client.write_var(this.plc_id, (byte)2);
+		this.client.write_var(plc_id, 35, 35);
 	    byte[] arrayOfByte = this.client.check_lock(this.plc_id, (byte)2);
 	    if (arrayOfByte == null) {
 	      this.label_lock_2_status.setText("Lock #2 status: Null");
@@ -168,7 +168,7 @@ public class ClientUI extends JFrame {
 	  }
 	  
 	  private void setLock3Status() {
-		  this.client.write_var(this.plc_id, (byte)-1);
+		  //this.client.write_var(this.plc_id, (byte)-1);
 	    byte[] arrayOfByte = this.client.check_lock(this.plc_id, (byte)-1);
 	    if (arrayOfByte == null) {
 	      this.label_lock_3_status.setText("Lock #3: Null");

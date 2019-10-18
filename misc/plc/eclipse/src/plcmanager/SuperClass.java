@@ -119,45 +119,23 @@ public class SuperClass {
 	    byte[] arrayOfByte3 = send_and_rcv(arrayOfByte2);
 	    if (arrayOfByte3 == null)
 	      return null; 
-	    //System.out.println(bytesToHex(arrayOfByte3));
+	    if (paramInt2 > 24) {
+	    	System.out.println(bytesToHex(arrayOfByte3));
+	    }
 	    byte b = arrayOfByte3[45];
+	    //System.out.println(b);
 	    byte[] arrayOfByte4 = new byte[b];
 	    System.arraycopy(arrayOfByte3, 46, arrayOfByte4, 0, b);
-	    //System.out.println(bytesToHex(arrayOfByte4));
-	    
+	    if(paramInt2 > 24) {
+	    	System.out.println(bytesToHex(arrayOfByte4));
+	    }
 	    return arrayOfByte4;
 	  }
 
-	  /* plcId, {1, 2, -1} */
-	  public byte[] write_var(long paramLong, byte paramByte) {
-		  byte[] arrayOfByte1 = { 0, 2, paramByte };
-		    byte[] arrayOfByte2 = build_header(paramLong, arrayOfByte1); // header - 43 char
-		    //System.out.println(arrayOfByte2.length);
-		    //System.out.println(arrayOfByte4.length);
-		    byte[] arrayOfByte3 = send_and_rcv(arrayOfByte2);
-		    System.out.println("Sent : " + bytesToHex(arrayOfByte2));
-		    //System.out.println("Write response length : " + arrayOfByte3.length);
-		    System.out.println("Write response : " + bytesToHex(arrayOfByte3));
-		    byte[] test = new byte[arrayOfByte3.length - 42];
-		    System.arraycopy(arrayOfByte3, 42, test, 0, arrayOfByte3.length - 42);
-		    System.out.println("Test : " + bytesToHex(test));
-		    if(paramByte == -1) {
-		    	System.out.println(arrayOfByte3[45]);
-		    }
-		    return arrayOfByte3;
-		    /*
-		    if (arrayOfByte3 == null)
-		      return null; 
-		    if (paramByte == -1) {
-		      byte[] arrayOfByte = new byte[arrayOfByte3.length - 45];
-		      System.arraycopy(arrayOfByte3, 45, arrayOfByte, 0, arrayOfByte3.length - 45);
-		      return arrayOfByte;
-		    } 
-		    
-		    byte[] arrayOfByte4 = new byte[2];
-		    arrayOfByte4[0] = arrayOfByte3[45];
-		    arrayOfByte4[1] = 0;
-		    return arrayOfByte4;*/
+	  public void write_var(long paramLong, int paramInt1, int paramInt2) {
+		  byte[] arrayOfByte1 = { 0, 2, (byte)paramInt1, (byte)paramInt2, 0 };
+		    byte[] arrayOfByte2 = build_header(paramLong, arrayOfByte1);
+		    send_and_rcv(arrayOfByte2);
 	  }
 
 	  
@@ -165,19 +143,15 @@ public class SuperClass {
 	    byte[] arrayOfByte1 = { 0, 3, paramByte };
 	    byte[] arrayOfByte2 = build_header(paramLong, arrayOfByte1);
 	    byte[] arrayOfByte3 = send_and_rcv(arrayOfByte2);
-	    //System.out.println("Header lock " + (int)paramByte + " : " + bytesToHex(arrayOfByte2));
-	    //System.out.println("Respo. lock " + (int)paramByte + " : " + bytesToHex(arrayOfByte3));
 	    if (arrayOfByte3 == null)
 	      return null; 
 	    if (paramByte == -1) { // third lock
 	      byte[] arrayOfByte = new byte[arrayOfByte3.length - 45];
 	      System.arraycopy(arrayOfByte3, 45, arrayOfByte, 0, arrayOfByte3.length - 45);
-	      //System.out.println(arrayOfByte.length);
 	      return arrayOfByte;
 	    } 
 	    
 	    byte[] arrayOfByte4 = new byte[2];
-	    //System.out.println("Array3 @ 45 : " + arrayOfByte3[45]);
 	    arrayOfByte4[0] = arrayOfByte3[45];
 	    arrayOfByte4[1] = 0;
 	    //System.out.println(bytesToHex(arrayOfByte4));
